@@ -1,11 +1,5 @@
-# OS X
-.DS_Store*
-Icon?
-._*
-
-# npm
-node_modules
-*.log
-*.gz
-
+node_modules/ 
+temp/
+upload/
+.DS_Store
 .env
