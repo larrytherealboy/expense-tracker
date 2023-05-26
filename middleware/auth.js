@@ -1,9 +1,13 @@
-module.exports = {
-  authenticator: (req, res, next) => {
-    if (req.isAuthenticated()) {
-      return next()
-    }
-    req.flash('warning_msg', '請先登入才能使用！')  
-    res.redirect('/users/login')
+const { ensureAuthenticated, getUser } = require('../helpers/auth-helpers')
+
+const authenticated = (req, res, next) => {
+  // if (req.isAuthenticated)
+  if (ensureAuthenticated(req)) {
+    return next()
   }
+  res.redirect('/signin')
+}
+
+module.exports = {
+  authenticated
 }

@@ -1,1 +1,72 @@
-<div> records</div>
+<div class="dropdown">
+  <button class="btn btn-dark dropdown-toggle" type="submit" id="dropdownMenuButton1" data-bs-toggle="dropdown"
+    aria-expanded="false" data-sort="hi">
+    分類
+  </button>
+  <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+    <li><a class="dropdown-item" href="?categoryId=">全部</a></li>
+    {{#each categories}}
+    <li><a class="dropdown-item" href="?categoryId={{this.id}}">{{this.name}}</a></li>
+    {{/each}}
+  </ul>
+</div>
+
+<div class="d-flex justify-content-center">
+
+  <ul class="list-group mb-8 ">
+    <li class="list-group-item mb-4 border-0">
+      <div class="col-auto me-auto d-flex justify-content-between">
+        <h4 class="d-inline ms-2 align-middle">
+          總金額:
+        </h4>
+        <h1 class="d-inline ms-2 align-middle text-info">
+          {{sumAmounts}}
+          </h4>
+      </div>
+    </li>
+
+
+    {{#each records}}
+    <div class="d-flex justify-content-between" style="width: 40em">
+      <li class="list-group-item mb-4 border-0 d-flex justify-content-between" style="width: 30em">
+        <div class="row me-5">
+          <div class="d-flex flex-nowrap align-items-center">
+            <div class="me-5">
+              <i class="{{ this.Category.image }} fa-2xl" style="color: #90dfea"></i>
+            </div>
+      
+            <div class="justify-content-between me-5">
+              <h3 class="card-title mb-1 text-secondary">{{this.name}}</h3>
+              <p class="card-title mb-1 text-secondary fs-6">{{this.date}}</p>
+            </div>
+            <div class="justify-content-between ms-5 position-absolute top-50 end-0 translate-middle">
+              <h4 class="d-inline ms-2 align-middle">
+                {{ this.amount }}
+              </h4>
+            </div>
+      
+          </div>
+      
+        </div>
+      </li>
+      <div class="row-auto d-flex justify-content-between m-auto" id="buttons">
+        <div class="ms-1" id="edit">
+          <a class="btn btn-outline-success" href="./records/{{ this.id }}/edit">edit</a>
+        </div>
+        <div class="ms-2" id="delete">
+          <form action="./records/{{ this.id }}?_method=DELETE" method="POST" style="display: inline;">
+            <button class="btn btn-outline-danger" type="submit">delete</button>
+          </form>
+        </div>
+      </div>
+
+    </div>
+    
+    {{/each}}
+    <div class="mx-auto">
+      <a href='/records/create'>
+        <button type="button" class="btn btn-secondary">新增支出</button>
+      </a>
+    </div>
+  </ul>
+</div>
