@@ -1,13 +1,13 @@
 <div class="form-row mb-3">
-  <label class="form-label" for="name">Name</label>
-  <input class="form-control" type="text" name="name" id="name" placeholder="Enter name" value="{{record.name}}" required>
+  <label class="form-label" for="name">名稱</label>
+  <input class="form-control" type="text" name="name" id="name" placeholder="請輸入名稱..." value="{{record.name}}" required>
 </div>
 <div class="form-row mb-3">
-  <label for="date">Date:</label>
+  <label for="date">日期:</label>
   <input type="date" id="date" name="date" value="{{record.date}}" required>
 </div>
 <div class="form-row mb-3">
-  <label class="form-label" for="categoryId">Category</label>
+  <label class="form-label" for="categoryId">類別</label>
   <select class="form-control" id="categoryId" name="categoryId">
     {{#each categories}}
     <option value="{{this.id}}" {{#ifCond this.id ../record.categoryId}} selected {{/ifCond}}>{{this.name}}</option>
@@ -15,7 +15,7 @@
   </select>
 </div>
 <div class="form-row mb-3">
-  <label class="form-label" for="openingHours">Amount</label>
-  <input class="form-control" type="number" name="amount" id="amount" placeholder="Enter amount" value="{{record.amount}}" required>
+  <label class="form-label" for="openingHours">金額</label>
+  <input class="form-control" type="number" name="amount" id="amount" placeholder="請輸入金額..." value="{{record.amount}}" required>
 </div>
-<button type="submit" class="btn btn-primary">Submit</button>
+<button type="submit" class="btn btn-outline-primary">確認</button>
