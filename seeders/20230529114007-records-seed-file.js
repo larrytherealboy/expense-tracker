@@ -13,7 +13,7 @@ module.exports = {
     )
     await queryInterface.bulkInsert('Records',
       Array.from({ length: 50 }, () => ({
-        name: faker.name.findName(),
+        name: faker.lorem.word(),
         amount: Math.floor(Math.random() * 1000) + 1,
         date: faker.date.between("2010-01-01", "2022-12-31"),
         category_id: categories[Math.floor(Math.random() * categories.length)].id,
